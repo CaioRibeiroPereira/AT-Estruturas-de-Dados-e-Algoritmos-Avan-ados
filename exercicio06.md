@@ -1,0 +1,10 @@
+1) A primeira estratégia do estudante não é suficiente para provar que new é NP-completo. Ele já mostrou que new ∈ NP, mas para provar NP-completude também precisa mostrar que new é NP-difícil. O problema é que a redução feita foi no sentido errado:
+new≤pPPnew  
+
+Essa redução só mostra que new pode ser resolvido usando uma solução para PP, ou seja, que new não é mais difícil que PP. Em outras palavras, ela dá uma cota superior de dificuldade para new, e isso não basta para provar NP-dificuldade. Para provar que new é NP-completo, o correto seria fazer a redução no outro sentido:
+PP≤pnewPP
+
+
+2) Como PP já é NP-completo, mostrar essa redução permitiria concluir que new é pelo menos tão difícil quanto PP e, portanto, NP-difícil. Juntando isso com new ∈ NP, aí sim seria possível concluir que new é NP-completo.
+Já a conclusão de que P = NP também está errada. O fato de existir um algoritmo com complexidade O(n·W) não quer dizer que o problema está em P, porque esse tempo depende do valor numérico de W e não do tamanho da entrada em bits. Como um valor W pode ser representado em cerca de log W bits, um algoritmo O(n·W) pode acabar sendo exponencial em relação ao tamanho real da entrada. Por isso, esse tipo de algoritmo é chamado de pseudo-polinomial.
+Esse comportamento é típico de problemas fracamente NP-completos, como o próprio Problema da Partição. Esses problemas podem ter algoritmos pseudo-polinomiais sem que isso signifique que estão em P. Já em problemas fortemente NP-completos, esse tipo de algoritmo não é esperado, a menos que P = NP. Portanto, o algoritmo O(n·W) não prova que P = NP. Vale notar, porém, que a NP-dificuldade de new nunca chegou a ser estabelecida (a redução do item 1 foi feita na direção errada e não prova nada sobre a dificuldade de new), então o status de new continua em aberto: pelas informações disponíveis, ele tanto pode estar em P quanto ser NP-completo fraco. Se a NP-dificuldade de new fosse corretamente provada (via PP ≤p new, como no item 1), a existência desse algoritmo pseudo-polinomial seria consistente apenas com new sendo fracamente NP-completo — nunca fortemente, a menos que P = NP.
